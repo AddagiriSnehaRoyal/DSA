@@ -1,0 +1,346 @@
+1. Create a class with a parameterized constructor that takes two integer parameters to initialize the object's attributes. Write a method to display these values.
+
+package com.assignments;
+public class TwoNumbers {
+	
+	int num1;
+	int num2;
+	
+	TwoNumbers(int a, int b){
+	   num1= a;
+	   num2=b;
+	}
+	void DisplayNumbers() {
+		   System.out.println("Number1:"+num1);
+		   System.out.println("Number2:"+ num2);
+	   }
+
+	public static void main(String[] args) {
+         TwoNumbers n= new TwoNumbers(10,2);
+         n.DisplayNumbers();
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+2. Write a Java program illustrating constructor overloading by defining multiple constructors with different parameter lists in the same class.
+
+package com.assignments;
+
+public class ConstructorOverloading {
+
+	String name;
+	int age;
+	String place;
+	
+	ConstructorOverloading(String n){
+		name =n;
+	}
+	ConstructorOverloading(String n, int a){
+		name=n;
+		age = a;
+	}
+	ConstructorOverloading(String n, int a, String p){
+		name =n;
+		age= a;
+		place=p;
+	}
+	
+	void Display() {
+		System.out.println("Name: " + name + ", Age: " + age + ", Place: " + place);
+	}
+	
+	public static void main(String[] args) {
+		ConstructorOverloading p1 = new ConstructorOverloading("Sneha");
+		ConstructorOverloading p2 = new ConstructorOverloading("Suni",20);
+		ConstructorOverloading p3 = new ConstructorOverloading("Raji",40,"Andhra");
+		p1.Display();
+		p2.Display();
+		p3.Display();
+		
+
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Define a class with default and parameterized constructors. Show how you can create objects using both constructors.
+
+package com.assignments;
+public class Constructors {
+    
+	String car;
+	String colour;
+	int cost;
+	
+	Constructors(){
+		 car="null";
+		 colour="null";
+		 cost=0;
+	}
+	Constructors(String c,String co,int cos){
+		 car =c;
+		 colour=co;
+		 cost= cos;
+		
+	}
+	void Display() {
+		System.out.println("Car: "+ car + ", Colour: "+ colour + ", Cost: "+ cost);
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+		Constructors c1= new Constructors();
+		Constructors c2= new Constructors("KIA", "Black", 300000);
+		c1.Display();
+		c2.Display();
+
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. Explain and implement constructor chaining in a class with multiple constructors, where one constructor calls another using this() keyword.
+
+package com.assignments;
+
+public class Student {
+	
+	String name;
+	int id;
+	Student(){
+		this("null", 0);
+	}
+	Student(String name, int id){
+		this.name =name;
+		this.id=id;
+		
+	}
+	void Display() {
+		System.out.println("NAme: "+name + ", id: "+id);
+	}
+
+	public static void main(String[] args) {
+		
+		Student s1 = new Student();
+		Student s2 = new Student("Ravi", 20);
+		s1.Display();
+		s2.Display();
+		
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+5. Write a Java program in which constructor overloading is demonstrated using different data types and numbers of parameters.
+package com.assignments;
+
+public class Constructor5 {
+	
+	double len;
+	double wid;
+	String name;
+	
+	Constructor5(double l){
+		this.len=l;
+		
+	}
+	Constructor5(double l, double w){
+		this.len= l;
+		this.wid =w;
+	}
+	Constructor5(double l, double w, String n){
+		this.len =l;
+		this.wid=w;
+		this.name=n;
+	}
+
+	double area() {
+		return len*wid;
+	}
+	void display() {
+		System.out.println("length: "+ len + ", widhth: "+ wid + ", name: "+ name +", Area: "+area());
+	}
+
+	public static void main(String[] args) {
+		
+        Constructor5 d1= new Constructor5(12.0);
+        Constructor5 d2= new Constructor5(24.0,34.3);
+        Constructor5 d3= new Constructor5(13.34,67.3,"Rectangle");
+        d1.display();
+        d2.display();
+        d3.display();
+        
+	}
+
+}
+------------------------------------------------------------------------------------------------------
+6. Create a class with three constructors: a default constructor, a parameterized constructor, and one that copies an object (copy constructor). Show how constructor chaining is used here.
+package com.assignments;
+
+public class Constructor6 {
+	
+	String title;
+    String author;
+    int price;
+
+    Constructor6(){                                               //default constructor
+    	this("Unknown", "Unknown", 0);
+    }
+    Constructor6(String title, String author,int price){         // Parameterized constructor
+    	this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+    Constructor6(Constructor6 b){                                // Copy constructor
+    	this(b.title, b.author, b.price);
+    }
+    void display() {
+        System.out.println("Title: " + title + ", Author: " + author + ", Price: " + price);
+    }
+	public static void main(String[] args) {
+		Constructor6 b1= new Constructor6();
+		Constructor6 b2= new Constructor6("abc", "xyz", 20);
+		Constructor6 b3= new Constructor6(b2);
+		b1.display();
+		b2.display();
+		b3.display();
+
+	}
+
+}
+-----------------------------------------------------------------------------------------------------
+7.       Write a program that creates multiple objects demonstrating how constructor overloading allows creating objects with different initialization data.
+package com.assignments;
+
+public class Constructor7 {
+	private String name;
+    private int id;
+    private double salary;
+    
+    Constructor7(String name){
+    	this.name= name;
+    }
+    Constructor7(String name, int id){
+    	this.name=name;
+    	this.id=id;
+    }
+    Constructor7(String name, int id,double salary){
+    	this.name=name;
+    	this.id=id;
+    	this.salary=salary;
+    }
+    void display() {
+    	System.out.println("Name:"+ name +", id:"+id + ", salary: "+ salary);
+    }
+	public static void main(String[] args) {
+		Constructor7 e1=new Constructor7("Sneha");
+		Constructor7 e2=new Constructor7("Chinnu",1);
+		Constructor7 e3=new Constructor7("Srujana",3,200002.0);
+         e1.display();
+         e2.display();
+         e3.display();
+         
+	}
+
+}
+
+------------------------------------------------------------------------------------------------------
+
+8.      Create a class demonstrating constructor chaining across multiple constructors. Explain the order in which constructors are called.
+package com.assignments;
+
+public class Constructor8 {
+      String colour;
+      String size;
+      int cost;
+      
+      Constructor8(){
+    	  this("null","M",200);
+      }
+      Constructor8(String c, String s){
+    	  this.colour=c;
+    	  this.size=s;
+      }
+      Constructor8(String c, String s, int co){
+    	  this.colour=c;
+    	  this.size=s;
+    	  this.cost=co;
+      }
+      void display() {
+    	  System.out.println("colour: "+ colour+", Size: "+size+", cost:"+ cost);
+      }
+      
+      
+	public static void main(String[] args) {
+		Constructor8 d1= new Constructor8();
+		Constructor8 d2= new Constructor8("BLack","M",2000);
+		Constructor8 d3= new Constructor8("white","S",2300);
+        d1.display();
+        d2.display();
+        d3.display();
+        
+	}
+
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+9.      Write a Java class with private member variables. Provide multiple constructors with different parameters to initialize the variables and demonstrate constructor overloading.
+
+package com.assignments;
+
+public class Constructor9 {
+	private String name;
+	private int age;
+	private String place;
+	
+	Constructor9(String n){
+		name =n;
+	}
+	Constructor9(String n, int a){
+		name=n;
+		age = a;
+	}
+	Constructor9(String n, int a, String p){
+		name =n;
+		age= a;
+		place=p;
+	}
+	void Display() {
+		System.out.println("Name: " + name + ", Age: " + age + ", Place: " + place);
+	}
+	
+	public static void main(String[] args) {
+		Constructor9 p1 = new Constructor9("Sneha");
+		Constructor9 p2 = new Constructor9("Suni",20);
+		Constructor9 p3 = new Constructor9("Raji",40,"Andhra");
+		p1.Display();
+		p2.Display();
+		p3.Display();
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
